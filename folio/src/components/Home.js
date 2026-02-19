@@ -3,11 +3,11 @@ const Home=()=>{
 
         <>
         <div>
-          <div className="container-fluid">
+          <div className="container">
             <div className="row row-cols-1" >
-              <div className=" min-vh-100 col border border-2 text-center position-relative" id="My_palette">
+              <div className="col border text-center " id="My_palette">
                 My palette
-                <div className="">
+                <div className="border">
                   <span className="border">Colour 1</span>
                   <span className="border">Colour 2</span>
                   <span className="border">Colour 3</span>
@@ -17,10 +17,12 @@ const Home=()=>{
                 <p>I use a limited palette
                   <br/> Prussian Blue
                 </p>
-                <div className=" col border border-2 rounded  d-flex justify-content-center  " id="Video">Video</div>
+                
               </div>
-              
-              <div className=" min-vh-100 col border border-2 text-center" id="About_me">About me
+              <div className="col border border-2 position-relative">
+                <div className="col border rounded text-center position-absolute start-50 translate-middle " id="Video">Video</div>
+              </div>
+              <div className=" min-vh-100 col border border-2 text-center my-5" id="About_me">About me
                 <div className="col border ">
                   <h1>Ontisitse Manyeneng</h1>
                 </div>
