@@ -1,4 +1,3 @@
-
 import {useEffect} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
@@ -7,10 +6,11 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 const Home=()=>{
   
-  gsap.registerPlugin(ScrollTrigger);
+  
 
    useEffect(()=>{
-  
+
+      gsap.registerPlugin(ScrollTrigger);
 
       const tl=gsap.timeline();
 
@@ -53,7 +53,7 @@ const Home=()=>{
           <div className=" container-fluid overflow-hidden" id="home-container">
             <div className="row row-cols-1" id="row" >
             {/*Introduction section*/}
-              <div className=" min-vh-100 bg-success-subtle col" id="my-palette" >
+              <div className=" min-vh-100 bg-white col" id="my-palette" >
               </div>
               
               {/*About me section*/}
