@@ -1,8 +1,7 @@
-import { useRef } from "react";
+
 import {useEffect} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 
 
@@ -11,23 +10,41 @@ const Home=()=>{
   gsap.registerPlugin(ScrollTrigger);
 
    useEffect(()=>{
+  
 
-       const tl=gsap.timeline(
-        { scrollTrigger:{
-          trigger:"#home-container",
-          markers:false,
-          start:()=>`+= ${document.querySelector("#my-palette").offsetHeight}`,
-          end:"bottom top",
-          scrub:0.5,
-          toggleActions:"play none none reset"
-          
-        }}
-      );
+      const tl=gsap.timeline();
 
-      tl.fromTo("#my-palette",{x:0},{xPercent:100})
-        .fromTo("#about-me",{x:0},{xPercent:-100})
-        .fromTo("#work",{x:0},{xPercent:100})
-        .fromTo("#process",{x:0},{xPercent:-100})
+      tl.fromTo("#my-palette",{x:0},
+         {xPercent:100,
+          scrollTrigger:{
+            trigger:"#my-palette",
+            start:"top top",
+            scrub:1,}})
+        
+      .fromTo("#about-me",{x:0},
+        {xPercent:-100,
+            scrollTrigger:{
+            trigger:"#about-me",
+            start:"top top",
+            scrub:0.5,}})
+        
+        .fromTo("#work",{x:0},
+           {xPercent:100,
+            scrollTrigger:{
+            trigger:"#work",
+            start:"top top",
+            scrub:0.5,}}
+        )
+
+        .fromTo("#process",{x:0},
+            {xPercent:-100,
+            scrollTrigger:{
+            trigger:"#process",
+            start:"top top",
+            scrub:0.5,}}
+        )
+
+        .fromTo("#footer",{x:0},{xPercent:0})
         },[]);
 
     return(
@@ -48,7 +65,7 @@ const Home=()=>{
               {/*My process section*/}
                <div className="min-vh-100 col bg-danger text-center" id="process">My Process</div>
                {/**/}
-              <div className="col bg-secondary"  style={{height:"18rem"}} id="footer">Footer</div>
+              <div className="min-vh-100 col bg-secondary"  id="footer">Footer</div>
             </div>
           </div>
         </div>
