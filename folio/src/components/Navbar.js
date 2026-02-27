@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Navbar= ()=>{
 
@@ -11,14 +12,15 @@ const Navbar= ()=>{
     
       <div className="d-flex">
         <span>
-          <Link to="/">STUDIO ONTI</Link>
+          <Link className="link-underline link-underline-opacity-0" to="/">STUDIO ONTI</Link>
         </span>
-      </div>
+      </div>          
+  
       <div className="d-none d-lg-flex gap-5  me-2 ">
-          <span> <Link to="/about">About </Link></span>
-          <span> <Link to="/work">Work </Link></span>
-          <span> <Link to="/process">My process </Link></span>
-          <span> <Link to="/contact">Contact </Link></span>
+          <Link className="link-underline link-underline-opacity-0" to="/about" >Abou</Link>
+          <Link className="link-underline link-underline-opacity-0" to="/work">Work </Link>
+          <Link className="link-underline link-underline-opacity-0" to="/process">My process </Link>
+          <Link className="link-underline link-underline-opacity-0" to="/contact">Contact </Link>
       </div>
       <div className="d-lg-none">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -35,13 +37,10 @@ const Navbar= ()=>{
           </h5>
         </div>
           <hr/>
-          <Link className=" mx-auto" to="/about"  >About</Link>
-          <hr />
-          <Link className="mx-auto" to="/work">Work</Link>
-          <hr/>
-          <Link className="mx-auto" to="/process">My process</Link>
-          <hr/>
-          <Link className="mx-auto" to="/contact">Contact</Link>
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/about"  >About</Link><hr />
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/work">Work</Link><hr/>
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/process">My process</Link><hr/>
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/contact">Contact</Link>
       </div>
   </nav>
  
