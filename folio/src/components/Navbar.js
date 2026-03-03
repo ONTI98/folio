@@ -23,15 +23,15 @@ const Navbar= ()=>{
            
   
       <div className="d-none d-lg-flex gap-5 me-lg-5">
-          <a className="link-underline link-underline-opacity-0" href="/about" >About</a>
-          <Link className="link-underline link-underline-opacity-0" to="/work">Work </Link>
-          <Link className="link-underline link-underline-opacity-0" to="/process">Exhibitions </Link>          
-          <Link className="link-underline link-underline-opacity-0" to="/process">My process </Link>
-          <Link className="link-underline link-underline-opacity-0" to="/contact">Contact </Link>
+          <a className="link-underline link-underline-opacity-0 tomorrow-thin" href="/about" >About</a>
+          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/work">Work </Link>
+          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/process">Exhibitions </Link>          
+          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/process">My process </Link>
+          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/contact">Contact </Link>
       </div>
       <div className="d-lg-none">
         <button className="navbar-toggler border-0 mb-3 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon border-0"></span>
         </button>
       </div>
 
