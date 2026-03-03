@@ -1,5 +1,11 @@
 import {Link} from 'react-router-dom';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import logo from '../media/Website_logo.png'
+import about from '../media/website_about.png'
+import work from '../media/website_work.png'
+import process from '../media/website_process.png'
+import contact from '../media/website_contact.png'
+import exhibitions from '../media/website_exhibitions.png'
+
 
 const Navbar= ()=>{
 
@@ -8,39 +14,52 @@ const Navbar= ()=>{
 <>
 
 
-  <nav class="navbar fixed-top ">
+  <nav className=" navbar fixed-top ">
     
-      <div className="d-flex">
-        <span>
-          <Link className="link-underline link-underline-opacity-0" to="/">STUDIO ONTI</Link>
-        </span>
-      </div>          
+     
+          <Link className="" to="/">
+            <img src={logo} className=" " id="logo" alt=""/>
+          </Link>
+           
   
-      <div className="d-none d-lg-flex gap-5  me-2 ">
-          <Link className="link-underline link-underline-opacity-0" to="/about" >Abou</Link>
+      <div className="d-none d-lg-flex gap-5 me-lg-5">
+          <a className="link-underline link-underline-opacity-0" href="/about" >About</a>
           <Link className="link-underline link-underline-opacity-0" to="/work">Work </Link>
+          <Link className="link-underline link-underline-opacity-0" to="/process">Exhibitions </Link>          
           <Link className="link-underline link-underline-opacity-0" to="/process">My process </Link>
           <Link className="link-underline link-underline-opacity-0" to="/contact">Contact </Link>
       </div>
       <div className="d-lg-none">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler border-0 mb-3 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
       </div>
 
-      <div class="offcanvas w-75  offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+      <div className="offcanvas w-75  offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div className="offcanvas-header">
+          <div className="offcanvas-title" id="offcanvasNavbarLabel">
             <Link to="/">
-              STUDIO ONTI
+              Logo
             </Link>
-          </h5>
+          </div>
         </div>
           <hr/>
-          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/about"  >About</Link><hr />
-          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/work">Work</Link><hr/>
-          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/process">My process</Link><hr/>
-          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/contact">Contact</Link>
+         <a className="link-underline link-underline-opacity-0 mx-auto" href="/about" >
+          <img id="offset-about" src={about} alt=""/>
+         </a><hr />
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/work" >
+            <img id="offset-work" src={work} alt=""/>
+          </Link><hr/>
+           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/exhibitions" >
+            <img id="offset-exhibitions" src={exhibitions} alt=""/>
+          </Link><hr/>
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/process" >
+            <img id="offset-process" src={process} alt=""/>
+          </Link><hr/>
+          <Link className="link-underline link-underline-opacity-0 mx-auto" to="/contact" >
+            <img id="offset-contact" src={contact} alt=""/>
+          </Link>
+      
       </div>
   </nav>
  
