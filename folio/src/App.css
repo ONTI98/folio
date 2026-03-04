@@ -65,17 +65,39 @@ body{
     color: rgb(255, 255, 255);
 }
 #work{
-    color:rgb(255, 255, 255) ;
-    background-color: #231F20;
+   background-image: url("media/website_work_poly1.jpg");
+   background-size: cover;
+   background-position:center;
 }
+
 #palette-3{
     background-color: #e30022;
 }
 #process{
     background-color: #e30022;
 }
-
-
+#palette-4{
+    background-color:#003153 ;
+    color: #ffffff;
+}
+#process-video{
+        display: flex;
+        justify-content: center;
+        height: 28rem;
+        margin:auto;
+       
+    }
+.nav-hidden{
+        opacity:0;
+        transition: opacity 0.5s ease-in-out ;
+        
+    }
+.rotate{
+    transform:rotate(-90deg)
+   }
+.pad-palette{
+    margin-bottom:7%;
+}
 
 
 
@@ -85,7 +107,7 @@ body{
 
     
     #logo{
-    height:98px;
+    height:5rem;
     width: auto;
     }
     #offcanvas-logo{
@@ -94,23 +116,28 @@ body{
 
     #offset-about{
     height:3.5rem;
+    padding:5px;
     }
 
     #offset-work
     {
     height:3rem;
+    padding:5px;
     }
 
     #offset-exhibitions{
     height:2.8rem;
+    padding:5px;
     }
 
     #offset-process{
     height:3.2rem;
+     padding:5px;
     }
 
     #offset-contact{
     height:3rem;
+     padding:5px;
     }
     hr{
     border: 0.2px solid rgba(0, 0, 0, 0.11);
@@ -123,7 +150,34 @@ body{
     .navbar-toggler:focus{
         box-shadow: none;
     }
+    #work{ 
+       background-image: url("media/website_work_poly.jpg");
+       background-size:cover;
+       background-position: 64%;
+    }
+    #process-video{
+        display: flex;
+        justify-content: center;
+        height: 10rem;
+        margin:auto;
+       
+    }
+
+   .nav-hidden{
+        opacity:0;
+        transition: opacity 0.8s ease-in-out ;
+        
+
+    }
+    
+   .rotate{
+    transform:rotate(-90deg)
+   }
+    .pad-palette{
+    margin-bottom:40%;
 }
+}
+
 
 
 
