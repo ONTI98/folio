@@ -4,17 +4,36 @@ import about from '../media/website_about.png'
 import work from '../media/website_work.png'
 import process from '../media/website_process.png'
 import contact from '../media/website_contact.png'
-import exhibitions from '../media/website_exhibitions.png'
+import exhibitions from '../media/website_exhibitions.png';
+import {useEffect} from 'react';
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 
 
 const Navbar= ()=>{
+
+    useEffect(()=>{
+
+      ScrollTrigger.create(
+        { 
+          trigger:"#home-container",
+          start:"20% 40%",
+          toggleClass:{targets:"#nav", className:"nav-hidden"}
+        })
+
+     
+        })
+
+   
 
     return(
 
 <>
 
 
-  <nav className=" navbar fixed-top ">
+  <nav className=" navbar fixed-top " id="nav">
     
      
           <Link className="" to="/">
@@ -25,13 +44,13 @@ const Navbar= ()=>{
       <div className="d-none d-lg-flex gap-5 me-lg-5">
           <a className="link-underline link-underline-opacity-0 tomorrow-thin" href="/about" >About</a>
           <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/work">Work </Link>
-          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/process">Exhibitions </Link>          
           <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/process">My process </Link>
+          <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/process">Exhibitions </Link>          
           <Link className="link-underline link-underline-opacity-0 tomorrow-thin" to="/contact">Contact </Link>
       </div>
       <div className="d-lg-none">
-        <button className="navbar-toggler border-0 mb-3 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon border-0"></span>
+        <button className="navbar-toggler  border-0 mb-3 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
       </div>
 
@@ -50,11 +69,11 @@ const Navbar= ()=>{
           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/work" >
             <img id="offset-work" src={work} alt=""/>
           </Link><hr/>
-           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/exhibitions" >
-            <img id="offset-exhibitions" src={exhibitions} alt=""/>
-          </Link><hr/>
           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/process" >
             <img id="offset-process" src={process} alt=""/>
+          </Link><hr/>
+           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/exhibitions" >
+            <img id="offset-exhibitions" src={exhibitions} alt=""/>
           </Link><hr/>
           <Link className="link-underline link-underline-opacity-0 mx-auto" to="/contact" >
             <img id="offset-contact" src={contact} alt=""/>
