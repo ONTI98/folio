@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import {useEffect} from  'react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import about_me_image from '../media/about_me.jpg'
 import Hero from './Hero.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,7 +20,7 @@ const About=()=>{
             trigger:"#biography",
             start:"top 99.8%",
             end:"top bottom",   
-            toggleAction:"play pause none none",
+            scrub:1,
             
         }})
         
@@ -32,9 +31,12 @@ const About=()=>{
             <div className="min-vh-100 container-fluid position-relative" id="about-container">
                 
                 <div className="row row-cols-1 row-cols-lg-2">
-                         <div className="min-vh-100 col-lg-12 bg-warning position-relative d-flex justify-content-center" id="about-intro">
+                         <div className="min-vh-100 col-lg-12 position-relative d-flex justify-content-center" id="about-intro">
                             {/*Hero component*/}
-                               <Hero heading="About"/>
+                            
+                                <Hero section="bio." heading="Ontisitse Manyeneng"/>
+                        
+                               
                                 <div className="col-lg-12 bg-success position-absolute top-0 start-0 bottom-0 end-0" id="about-me-video">
                                     Video
                                 </div>
