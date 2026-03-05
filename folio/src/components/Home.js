@@ -2,11 +2,11 @@ import {useEffect} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import homepage_clip from '../media/homepage_clip1.mp4';
-import selfie from '../media/selfie 11-4-2.jpg'
-import about_me_image from '../media/about_me.jpg'
-import { Link } from 'react-router-dom';
-import process_video from '../media/website_clip.mp4';
-import work_poly from '../media/website_work_poly1.jpg'
+import selfie from '../media/selfie 11-4-2-2.jpg';
+import about_me_image from '../media/about_me.jpg';
+import process_video from '../media/website_clip.mp4'
+import {Link} from 'react-router-dom';
+import Hero from './Hero';
 
 
 const Home=()=>{
@@ -63,11 +63,6 @@ const Home=()=>{
           toggleClass:{targets:"#nav,#palette-1-heading", className:"nav-hidden"}
         })
 
-       
-       
-        
-          
-      
       },[]);
 
     return(
@@ -79,7 +74,7 @@ const Home=()=>{
             <div className="row row-cols-1" id="row" >
             {/*Introduction section*/}
               <div className=" min-vh-100 col position-relative" id="palette-1" >
-                <h5 class="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h5>
+                <h6 class="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
                 <div className="bg-white position-absolute top-0 start-0 end-0 bottom-0"id="my-palette">
                   
                     <div className="homepage-video-container d-flex justify-content-center">
@@ -94,28 +89,48 @@ const Home=()=>{
                 
               {/*About me section*/}
               <div className=" min-vh-100 col position-relative" id="palette-2" >
-                <h5 class="position-absolute bottom-0 end-0 pad-palette rotate">Lamp black</h5>
+                <h6 class="position-absolute bottom-0 end-0 pad-palette rotate">Lamp black</h6>
                 <div className="position-absolute top-0 start-0 end-0 bottom-0 "id="about-me">
-                  <h3 className="tomorrow-thin pb-5">About</h3>
-                    <img src={about_me_image} className="d-flex d-lg-none" id="about-me-image"alt=""/>
-                    <p className="tomorrow-thin pt-3">Ontisitse Manyeneng is a </p>
+                  <h3 className="tomorrow-thin p-5" >About</h3>
+                    <img src={about_me_image} className="d-flex" id="about-me-image"alt=""/>
+                    <p className="tomorrow-thin p-5 d-none d-lg-flex d-sm-none ">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
+                      His works explore the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
+                      the concept of the family unit, its make-up ,origins and the role is plays in the greater society. His practice is heavily inluenced by classical realism,
+                      impressionism,Neo-classicism and modern-day  minimalism, where he fuses both convetional and uncoventional theory to portray fundamental human commonalities.
+
+                       </p>
+                      <p className="tomorrow-thin p-5  d-sm-flex d-lg-none">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
+                      His work explores the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
+                      the concept of the family unit, its make-up ,origins and the role is plays in the greater society...<br/><br/>
+                     <a className="link-underline link-underline-opacity-0 tomorrow-thinner text-primary d-flex justify-content-end" href="/about" >Read more</a>
+                      </p>
+                      
                 </div>
+                
               </div>
               
               {/*Works section*/}
                  <div className=" min-vh-100 col position-relative " id="palette-3" >
-                <h5 class="position-absolute bottom-0 start-0 rotate pad-palette">Cadnium red light</h5>
+                <h6 class="position-absolute bottom-0 start-0 rotate pad-palette text-white">Cadnium red light</h6>
                 <div className="position-absolute top-0 start-0 end-0 bottom-0"id="work">
-                  <h3 className="tomorrow-thin pb-5 text-white">Work</h3>
+                  <h3 className="tomorrow-thin p-5 text-white">Work</h3>
+                  
+                  <div className="d-flex justify-content-center">
+                    <a className="link-underline link-underline-opacity-0 text-primary" href="/work">View more works</a>
+                                       </div>
                 </div>
               </div>
 
               {/*My process section*/}
                  <div className=" min-vh-100 col position-relative" id="palette-4"  >
-                <h5 class="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h5>
+                <h6 class="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
                 <div className="position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
-                  <h3 className="tomorrow-thin pb-5 ">My process</h3>
+                  <h3 className="tomorrow-thin p-5 ">My process</h3>
                   <video className=""src={process_video} type="video/mp4" autoPlay muted loop id="process-video"></video>
+        <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center pt-5" href="/process" >
+        Read about my process</a>
+
+                  
                 </div>
               </div>
 
