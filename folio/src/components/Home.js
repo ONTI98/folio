@@ -98,7 +98,7 @@ const Home=()=>{
                       impressionism,Neo-classicism and modern-day  minimalism, where he fuses both convetional and uncoventional theory to portray fundamental human commonalities.
                        </p>
                        <a className="link-underline link-underline-opacity-0 tomorrow-thinner text-primary d-none d-lg-flex justify-content-center" href="/about" >Read more</a>
-                      <p className="tomorrow-thin p-5  d-sm-flex d-lg-none">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
+                      <p className="tomorrow-thin  py-5 px-3 d-sm-flex d-lg-none">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
                       His work explores the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
                       the concept of the family unit, its make-up ,origins and the role is plays in the greater society...<br/>
                       <a className="link-underline link-underline-opacity-0 tomorrow-thinner text-primary d-lg-none d-flex d-md-none justify-content-end" href="/about" >Read more</a>
@@ -117,8 +117,8 @@ const Home=()=>{
                 <div className="position-absolute top-0 start-0 end-0 bottom-0"id="work">
                   <h3 className="tomorrow-thin p-5 text-white">Work</h3>
                   
-                  <div className="d-flex justify-content-center" style={{"padding-top":"12rem"}} id="see-more-container" >
-                    <a href="/work" className="text-white link-underline link-underline-opacity-0 " >
+                  <div className=" min-vh-100 d-flex justify-content-center border position-absolute top-0 bottom-0 end-0 start-0"  id="see-more-container" >
+                    <a href="/work" className="text-white link-underline link-underline-opacity-0 " id="see-more-container-link">
                       <i className=" bx bx-arrow-to-right bx-lg d-flex justify-content-center rounded bx-flashing" id="see-more-icon"></i> 
                       <div className="tomorrow-thin text-white">See more</div> 
                     </a> 
@@ -140,7 +140,7 @@ const Home=()=>{
               </div>
 
                {/*Footer section*/}
-              <div className="min-vh-100 col bg-white d-lg-flex d-sm-block d-md-flex p-5"  id="footer">
+              <div className="min-vh-100 col bg-white d-lg-flex d-sm-block d-md-block p-5"  id="footer">
                <div className="col border bg-success">Contact Ontisitse Manyeneng</div>
                <div className="col border bg-primary">This website is designed and maintained by </div>
               </div>
