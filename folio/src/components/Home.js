@@ -4,8 +4,15 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import homepage_clip from '../media/homepage_clip1.mp4';
 import selfie from '../media/selfie 11-4-2-2.jpg';
 import about_me_image from '../media/about_me.jpg';
-import process_video from '../media/website_clip.mp4'
-
+import process_video from '../media/website_clip.mp4';
+import FooterImage  from './Footer_image';
+import elephant from '../media/website_footer.png';
+import cow1 from '../media/website_footer1.png';
+import family from '../media/website_footer2.png';
+import giraffe from '../media/website_footer3.png';
+import cow from '../media/website_footer4.png';
+import person from '../media/website_footer5.png';
+import sun from '../media/website_footer6.png';
 
 const Home=()=>{
   
@@ -140,9 +147,36 @@ const Home=()=>{
               </div>
 
                {/*Footer section*/}
-              <div className="min-vh-100 col bg-white d-lg-flex d-sm-block d-md-block p-5"  id="footer">
-               <div className="col border bg-success">Contact Ontisitse Manyeneng</div>
-               <div className="col border bg-primary">This website is designed and maintained by </div>
+              <div className="min-vh-100 col bg-white d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
+                <div className="position-absolute top-0 start-0 opacity-50" id="elephant">
+                   <FooterImage source={elephant} />
+                </div>
+                <div className="position-absolute top-0 start-50  opacity-50" id="elephant">
+                   <FooterImage source={cow1} />
+                </div>
+                <div className="position-absolute top-0 end-0  opacity-50" id="elephant">
+                   <FooterImage source={family} />
+                </div>
+                <div className="position-absolute top-50 start-0  opacity-50" id="elephant">
+                   <FooterImage source={giraffe} />
+                </div>
+                <div className="position-absolute bottom-0 start-0  opacity-50"  style={{"padding-bottom":"9rem"}} id="elephant">
+                   <FooterImage source={cow} />
+                </div>
+                <div className="position-absolute bottom-0 start-50  opacity-50 "  style={{"padding-bottom":"9rem"}} id="elephant">
+                   <FooterImage source={person} />
+                </div>
+                 <div className="position-absolute bottom-0 end-0 opacity-50" style={{"padding-bottom":"9rem"}} id="elephant">
+                   <FooterImage source={sun} />
+                </div>
+                     <div className="position-absolute bottom-0 top-50 end-0 opacity-50" id="elephant">
+                   <FooterImage source={sun} />
+                </div>
+             
+               <div className="col border">Contact Ontisitse Manyeneng
+                
+               </div>
+               <div className="col border">This website is designed and maintained by </div>
               </div>
             </div>
           </div>
