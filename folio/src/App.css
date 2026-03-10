@@ -104,6 +104,7 @@ body{
 .pad-palette{
     margin-bottom:7%;
 }
+
 #about-me-image-lg{
     margin-top:15rem;
     margin-left: auto;
@@ -120,11 +121,9 @@ body{
 #hero{
     margin:auto;
 }
-#about-intro{
-   background-color:#CB9D06;
-   }
+
  #work-intro{
-   background-color:#06cb55;
+   background-color:#6dbef8;
    }
 #see-more-container-link{
     margin:auto;
@@ -159,8 +158,48 @@ body{
         margin-top:5rem;
         margin-bottom:5rem;
     }
+#process-intro{
+    background-color:#e97451;
+}
+#process-canvas{
+    height:auto;
+    width:100%;
+    
+}
 
+#process-1{
+        background-size: cover;
+        background-image: url("media/process_canvas.jpg");
+        background-position:40% ;
+        background-position-y: 40%;
 
+    }
+#process-raw-image{
+    height: 18rem;
+    margin-top:4rem;
+}
+#process-stretcher-image{
+    height: 18rem;
+    margin-top:4rem;
+    
+}
+#exhibitions-1{
+    padding-top: 8rem;
+    background-color: #e30022;
+}
+#contact-1{
+    padding-top: 8rem;
+    background-color: #4e33fa;
+}
+#about-intro{
+    background-color: #4afa33;
+}
+#about-container{
+    height: 100%;
+}
+#biography{
+    height: max-content;
+}
 
 @media(max-width:640px){
 
@@ -238,6 +277,9 @@ body{
     margin:auto;
    }
    #about-intro{
+    background-color: white;
+   }
+   #about-intro{
     background-image: url("media/website_about_small_device.jpg");
     background-size: cover;
     background-position-x: 17%;  
@@ -282,6 +324,29 @@ body{
         margin-top:5rem;
         margin-bottom:5rem;
     }
+    #process-1{
+        background-size: cover;
+        background-image: url("media/process_canvas.jpg");
+        background-position:40% ;
+
+    }
+    #process-stretcher-image{
+    height: auto;
+    margin-top:4rem;
+    width: 100%;
+    }
+    #process-raw-image-container{
+
+        margin:auto;
+    }
+    #contact-1{
+    background-color: #4e33fa;
+    }
+    
+    
+    
+
+
 
   
  
