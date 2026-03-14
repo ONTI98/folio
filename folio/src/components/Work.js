@@ -9,6 +9,7 @@ import trip from '../media/work_trip.jpg';
 import work_self from '../media/work_selfie.jpg';
 import molao from '../media/work_molao.jpg';
 import dipaki from '../media/work_dipaki.jpg';
+import Navbar from './Navbar.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,11 +31,20 @@ const tl=gsap.timeline();
                     scrub:1,
 
                 }
+
+            
+                
             })
-    })
+
+        gsap.set(
+        ["#spane-1"],
+        { willChange: "transform" })
+            
+    });
     
     return(
                     <>
+                    <Navbar/>
                         <div className="container-fluid" id="work-container">
                                 <div className="row row-cols-1 row-cols-lg-1">
                                     
