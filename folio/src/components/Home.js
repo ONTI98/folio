@@ -1,4 +1,7 @@
 import {useEffect} from 'react';
+import Hero from './Hero';
+import {useGSAP} from '@gsap/react';
+import {useState} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import homepage_clip from '../media/homepage_clip1.mp4';
@@ -14,14 +17,19 @@ import cow from '../media/website_footer4.png';
 import person from '../media/website_footer5.png';
 import sun from '../media/website_footer6.png';
 
+
+
+
 const Home=()=>{
+
+
+
+
+
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+
   
-  
-
-   useEffect(()=>{
-
-      gsap.registerPlugin(ScrollTrigger);
-
       const tl=gsap.timeline();
 
       tl.fromTo("#my-palette",{x:0},
@@ -30,35 +38,34 @@ const Home=()=>{
             trigger:"#my-palette",
             start:"top top",
             end:"bottom top",
-            scrub:1.5,}})
+            scrub:1,}})
         
-      .fromTo("#about-me",{x:0},
+        gsap.fromTo("#about-me",{x:0},
         {xPercent:-100,
             scrollTrigger:{
             trigger:"#about-me",
             start:"top top",
             end:"bottom top",
-            scrub:1.5,}})
+            scrub:1,}})
         
-        .fromTo("#work",{x:0},
+        gsap.fromTo("#work",{x:0},
            {xPercent:100,
             scrollTrigger:{
             trigger:"#work",
             start:"top top",
             end:"bottom top",
-            scrub:1.5,}}
+            scrub:1,}}
         )
 
-        .fromTo("#process",{x:0},
+        gsap.fromTo("#process",{x:0},
             {xPercent:-100,
             scrollTrigger:{
             trigger:"#process",
             start:"top top",
             end:"bottom top",
-            scrub:1.5,}}
+            scrub:1,}}
         )
 
-       
         ScrollTrigger.create(
         { 
           trigger:"#about-me",
@@ -67,11 +74,14 @@ const Home=()=>{
           toggleClass:{targets:"#nav,#palette-1-heading", className:"nav-hidden"}
         }
         )
-       
+        
 
-      },[]);
+  });
 
-    return(
+
+
+      return(
+        
         <>
        
         <div >
@@ -80,14 +90,14 @@ const Home=()=>{
             <div className="row row-cols-1" id="row" >
             {/*Introduction section*/}
               <div className=" min-vh-100 col position-relative" id="palette-1" >
-                <h6 class="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
+                <h6 className="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
                 <div className="bg-white position-absolute top-0 start-0 end-0 bottom-0"id="my-palette">
                   
                     <div className="homepage-video-container d-flex justify-content-center">
                      
                          <img src={selfie} className="d-lg-none" alt="home_image"/>
                      
-                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  autoPlay loop muted ></video> 
+                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  autoPlay loop muted preload="none"></video> 
                                                                 
                     </div>
                 </div>
@@ -95,10 +105,11 @@ const Home=()=>{
                 
               {/*About me section*/}
               <div className=" min-vh-100 col position-relative" id="palette-2" >
-                <h6 class="position-absolute bottom-0 end-0 pad-palette rotate">Lamp black</h6>
+                <h6 className="position-absolute bottom-0 end-0 pad-palette rotate">Lamp black</h6>
                 <div className="position-absolute top-0 start-0 end-0 bottom-0 "id="about-me">
+                  
                   <h3 className="tomorrow-thin p-5" >About</h3>
-                    <img src={about_me_image} className="d-flex" id="about-me-image"alt=""/>
+                    <img src={about_me_image} className="d-flex" id="about-me-image"alt="about self portrait"/>
                     <p className="tomorrow-thin p-5 d-none d-lg-flex d-sm-none ">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
                       His works explore the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
                       the concept of the family unit, its make-up ,origins and the role is plays in the greater society. His practice is heavily inluenced by classical realism,
@@ -121,10 +132,10 @@ const Home=()=>{
               {/*Works section*/}
                  <div className=" min-vh-100 col position-relative " id="palette-3" >
                 <h6 class="position-absolute bottom-0 start-0 rotate pad-palette text-white">Cadnium red light</h6>
-                <div className="position-absolute top-0 start-0 end-0 bottom-0"id="work">
+                <div className="border-0 position-absolute top-0 start-0 end-0 bottom-0"id="work">
                   <h3 className="tomorrow-thin p-5 text-white">Work</h3>
                   
-                  <div className=" min-vh-100 d-flex justify-content-center border position-absolute top-0 bottom-0 end-0 start-0"  id="see-more-container" >
+                  <div className=" min-vh-100 d-flex justify-content-center position-absolute top-0 bottom-0 end-0 start-0"  id="see-more-container" >
                     <a href="/work" className="text-white link-underline link-underline-opacity-0 " id="see-more-container-link">
                       <i className=" bx bx-arrow-to-right bx-lg d-flex justify-content-center rounded bx-flashing" id="see-more-icon"></i> 
                       <div className="tomorrow-thin text-white">See more</div> 
@@ -138,45 +149,65 @@ const Home=()=>{
                 <h6 class="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
                 <div className="position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
-                  <video className=""src={process_video} type="video/mp4" autoPlay muted loop id="process-video"></video>
-                  <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center pt-5" href="/process" >
-                      Read about my process</a>
-
-                  
+                  <video className="p-md-5 "src={process_video} type="video/mp4" autoPlay muted loop id="process-video"></video>
+                  <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
+                      Read about my process</a> 
                 </div>
               </div>
 
                {/*Footer section*/}
-              <div className="min-vh-100 col bg-white d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
-                <div className="position-absolute top-0 start-0 opacity-50" id="elephant">
+              <div className="col  d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
+                <div className="position-absolute top-0 start-0 opacity-75" id="elephant">
                    <FooterImage source={elephant} />
                 </div>
-                <div className="position-absolute top-0 start-50  opacity-50" id="elephant">
+                <div className="position-absolute top-0 start-50  opacity-50" id="cow1">
                    <FooterImage source={cow1} />
                 </div>
-                <div className="position-absolute top-0 end-0  opacity-50" id="elephant">
+                <div className="position-absolute top-0 end-0  opacity-100" id="family">
                    <FooterImage source={family} />
                 </div>
-                <div className="position-absolute top-50 start-0  opacity-50" id="elephant">
+                <div className="position-absolute top-50 start-0  opacity-100" id="giraffe">
                    <FooterImage source={giraffe} />
                 </div>
-                <div className="position-absolute bottom-0 start-0  opacity-50"  style={{"padding-bottom":"9rem"}} id="elephant">
+                <div className="position-absolute bottom-0 start-0  opacity-100"   id="cow">
                    <FooterImage source={cow} />
                 </div>
-                <div className="position-absolute bottom-0 start-50  opacity-50 "  style={{"padding-bottom":"9rem"}} id="elephant">
+                <div className="position-absolute bottom-0 start-50  opacity-100 "  id="person">
                    <FooterImage source={person} />
                 </div>
-                 <div className="position-absolute bottom-0 end-0 opacity-50" style={{"padding-bottom":"9rem"}} id="elephant">
+                 <div className="position-absolute bottom-0 end-0 opacity-100" id="sun">
                    <FooterImage source={sun} />
                 </div>
-                     <div className="position-absolute bottom-0 top-50 end-0 opacity-50" id="elephant">
+                     <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant">
                    <FooterImage source={sun} />
                 </div>
-             
-               <div className="col border">Contact Ontisitse Manyeneng
+
+                {/*Footer icon and heading*/}
+
+                {/*instagram link*/}
                 
+              
+               <div className="col rounded d-block d-lg-block d-md-block  p-4">
+                <h5 className="tomorrow-thinner">Contact Ontisitse Manyeneng</h5>
+                <div className="col d-md-block d-sm-flex d-lg-block justify-content-center py-4 " id="instagram-link">
+                    <a className="link-underline link-underline-opacity-0" href="https://instagram.com/ontisitsemanyeneng">
+                  <i className="fa-brands fa-xl fa-instagram "><span className="tomorrow-thin ps-1">ontisitsemanyeneng</span></i>
+                  </a>
+                </div>
                </div>
-               <div className="col border">This website is designed and maintained by </div>
+
+              {/*Github link*/}
+              
+                 <div className="col rounded d-block d-lg-block d-md-block   p-4 ">
+                <h5 className="tomorrow-thinner">This website is designed and maintained by</h5>
+                <div className="col d-md-block d-lg-block justify-content-center py-4">
+                  <a className="link-underline link-underline-opacity-0" href="https://github.com/ONTI98">
+                  <i className="fa-brands fa-xl fa-github "><span className="tomorrow-thin ps-1">CODONTI</span></i>
+                  </a>
+                </div>
+               </div>
+
+
               </div>
             </div>
           </div>
@@ -184,7 +215,8 @@ const Home=()=>{
     
         </>
     );
-};
+  };
+  
 
 
 export default Home;
