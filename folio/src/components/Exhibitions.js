@@ -1,3 +1,4 @@
+import Navbar from './Navbar.js';
 
 const Exhibitions=()=>{
 
@@ -7,7 +8,7 @@ const Exhibitions=()=>{
     return(
     
         <>
-            
+            <Navbar/>
             <div className="container-fluid">
                     <div className="row row-cols-1 row-cols-lg-1">
                 
