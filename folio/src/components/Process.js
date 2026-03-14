@@ -4,7 +4,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import Hero from './Hero.js';
 import process_raw from '../media/process_raw.jpg';
 import process_stretcher from '../media/process_stretcher.jpg';
-
+import Navbar from './Navbar.js';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,14 +30,17 @@ const tl=gsap.timeline();
 
                 }
             })
+        gsap.set(
+        ["#process-1"],
+        {willChange: "transform" })
     })
   
 
     return(
     
         <>
-            
-                        <div className="container-fluid">
+            <Navbar/>
+                        <div className="container-fluid" id="process-container">
                                 <div className="row row-cols-1 row-cols-lg-1">
                             {/*Hero section*/}
                             <div className="shadow rounded col min-vh-100  position-relative overflow-hidden d-flex justify-content-center" id="process-intro">
@@ -64,7 +67,7 @@ const tl=gsap.timeline();
                                     Sizing is crucial in the first stages of canvas preparation
                                     to ensure durability.It acts as barrier between the canvas and the primer. If the sizing step is skipped , Oil pigments will penetrate the canvas. Since cotton is
                                     a natural fibre, it might decay as a result of fibre rot.<br/>
-                                    The final stage is priming, where oil-based Titanium white paint is applied in two to threee lays directly on top of the size. 
+                                    The final stage is priming, where oil-based Titanium white paint is applied in two to three layers directly on top of the size. 
                                 </p>
                             </div> 
                             
@@ -81,7 +84,7 @@ const tl=gsap.timeline();
                                     <b>Stretcher bars</b> are a fairly costly,more durable option for stretching a canvas. they are the go-to for many high-end art supply stores and my personal favourite
                                     stretching frames.Their formation is neither bound by glue nor nails but by wood joinery. A standard mortise and tenon joint or a mitered-bridle joint works well for the stretcher bar 
                                     application.Every joint has small slots for inserting small wooden shims called <b>keys</b>.<br/><br/> 
-                                    Keys, when hammered ensure that the canvas keeps tension. When canvas loses tension over time,
+                                    Keys, when hammered ensure that the canvas keeps tension. When a canvas loses tension over time,
                                     keys are hammered further into their slots to ensure tension exists without the need to restaple the entire canvas. Stretcher bars are far superior in design to strainers. 
                                     My works are completed with an <b>8-key stretcher</b> system for
                                     medium and large-sized canvases, whereas smaller pieces are usually accompanied by a <b>4-key stretcher</b> system or a strainer with cross members.
