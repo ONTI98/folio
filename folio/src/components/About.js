@@ -1,18 +1,28 @@
 import gsap from 'gsap';
-import {useEffect} from  'react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import Hero from './Hero.js';
-import doc from '../media/doc.mp4';
 import Navbar from './Navbar.js';
+import {ScrollSmoother} from 'gsap/ScrollSmoother';
+import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 const About=()=>{
 
 
  const tl=gsap.timeline();
 
-    useEffect(()=>{
+ 
+
+    useGSAP(()=>{
+
+        ScrollSmoother.create({
+ 
+         smooth:1
+ 
+        })
+        
+        const ctx=gsap.context(()=>{
         
         tl.fromTo("#about-me-video",
         {x:"-100vw"},
@@ -22,38 +32,63 @@ const About=()=>{
             trigger:"#biography",
             start:"top 99.8%",
             end:"top bottom",   
-            scrub:1,
+            scrub:1.5,
             
         }})
+        ScrollTrigger.create(
+          {
+            trigger:"#about-container",
+            start:"top top",
+            toggleClass:{
+              targets:"#nav",
+              className:"nav-hidden"
+            }
+            
+          }
+        )
+        
         gsap.set(
         ["#about-me-video"],
         {willChange: "transform" })
+        })
         
-    })
+        return ()=>{
+            ctx.revert()
+        }
+
+    },[])
 
     return(
         <> 
         <Navbar/>
-            <div className="container-fluid position-relative" id="about-container">
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <div className="container-fluid position-relative" id="about-container">
                 
                 <div className="row row-cols-1 row-cols-lg-2">
-                         <div className="shadow rounded min-vh-100 col-lg-12 position-relative d-flex justify-content-center" id="about-intro">
+                         <div className="shadow min-vh-100 col-lg-12 position-relative d-flex justify-content-center" id="about-intro">
                             {/*Hero component*/}
                             
                                 <Hero section="bio." heading="Ontisitse Manyeneng"/>
                         
                                
-                                <div className="shadow rounded  bg-black position-absolute top-0 start-0 bottom-0 end-0 d-flex justify-content-center " id="about-me-video">
+                                <div className="shadow bg-black position-absolute top-0 start-0 bottom-0 end-0 d-flex justify-content-center" id="about-me-video">
                                     
-                                        <video className="p-md-5 "src={doc} type="video/mp4" id="about-video" muted playsInline autoPlay loop></video>
+                                 <iframe width="1360" height="480" src="https://www.youtube.com/embed/OAKqd6TUVMc" 
+                                 title="Ontisitse Manyeneng discusses new body of work, &#39;Talking to you and I&#39;" 
+                                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                 referrerpolicy="strict-origin-when-cross-origin" 
+                                 allowfullscreen
+                                 id="about-video">
                                     
+                                 </iframe>
                                     
                                 </div>
                             </div>
                             
                             {/*Biography*/}
                          <div  className="col-lg-12 px-4" id="biography">
-                            <p className="tomorrow-thin">
+                            <div className="tomorrow-thin">
                                 <h3 className="py-5">Biography</h3> <br/>
                                 Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
                                 His works explore the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
@@ -64,8 +99,8 @@ const About=()=>{
                                 he will on occasion immerse himself in the charcoal and graphite landscape.Since graduating, Manyeneng has participated in a number of group exhibitions,in Cape town 
                                 and Tshwane.
                                 
-                            </p><br/>
-                              <p className="tomorrow-thin pb-5 ">
+                            </div><br/>
+                              <div className="tomorrow-thin pb-5 ">
                                 <h3 className="py-5">Statement</h3>
                                 
 
@@ -88,11 +123,13 @@ const About=()=>{
                                 My works are conversation pieces, inviting the viewer to look within and outward at the world, come back to the work and impart their most sincere feelings.
 
 
-                            </p>
+                            </div>
                         </div> 
                           
                 </div>
+                </div>
             </div>
+        </div>
         </>
     );
 };
