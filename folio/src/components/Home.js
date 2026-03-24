@@ -1,12 +1,10 @@
-import {useEffect} from 'react';
-import Hero from './Hero';
-import {useGSAP} from '@gsap/react';
-import {useState} from 'react';
 import gsap from 'gsap';
+import {useGSAP} from '@gsap/react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import homepage_clip from '../media/homepage_clip1.mp4';
-import selfie from '../media/selfie 11-4-2-2.jpg';
-import about_me_image from '../media/about_me.jpg';
+import selfie from '../media/selfie 11-4-2-2-2.jpg';
+import about_me_image from '../media/about_me2.jpg';
 import process_video from '../media/website_clip.mp4';
 import FooterImage  from './Footer_image';
 import elephant from '../media/website_footer.png';
@@ -16,27 +14,31 @@ import giraffe from '../media/website_footer3.png';
 import cow from '../media/website_footer4.png';
 import person from '../media/website_footer5.png';
 import sun from '../media/website_footer6.png';
+import Navbar from './Navbar.js';
+gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 
 
 
 const Home=()=>{
-
-
-
+  
 
 
   useGSAP(()=>{
-    gsap.registerPlugin(ScrollTrigger);
 
-  
-      const tl=gsap.timeline();
-
-      tl.fromTo("#my-palette",{x:0},
-         {xPercent:100,
+  ScrollSmoother.create(
+          {
+            smooth:1,
+          });
+    
+   //animation context       
+   const ctx=gsap.context(()=>{
+      
+      gsap.fromTo("#my-palette",{x:0},
+         {xPercent:140,
           scrollTrigger:{
             trigger:"#my-palette",
-            start:"top top",
+            start:"5% top",
             end:"bottom top",
             scrub:1,}})
         
@@ -44,58 +46,75 @@ const Home=()=>{
         {xPercent:-100,
             scrollTrigger:{
             trigger:"#about-me",
-            start:"top top",
+            start:"5% top",
             end:"bottom top",
             scrub:1,}})
         
         gsap.fromTo("#work",{x:0},
-           {xPercent:100,
+           {xPercent:110,
             scrollTrigger:{
             trigger:"#work",
-            start:"top top",
+            start:"5% top",
             end:"bottom top",
             scrub:1,}}
-        )
-
-        gsap.fromTo("#process",{x:0},
-            {xPercent:-100,
-            scrollTrigger:{
-            trigger:"#process",
-            start:"top top",
-            end:"bottom top",
-            scrub:1,}}
-        )
-
-        ScrollTrigger.create(
-        { 
-          trigger:"#about-me",
-          start:"top 30%",
-          end:"400% 200vh ",
-          toggleClass:{targets:"#nav,#palette-1-heading", className:"nav-hidden"}
-        }
         )
         
 
+        gsap.fromTo("#process",{x:0},
+            {xPercent:-120,
+            scrollTrigger:{
+            trigger:"#process",
+            start:"5% top",
+            end:"bottom top",
+            scrub:1,
+            
+          }}
+        )
+        ScrollTrigger.refresh();
+
+        ScrollTrigger.create(
+          {
+            trigger:"#home-container",
+            start:"top top",
+            toggleClass:{
+              targets:"#nav",
+              className:"nav-hidden"
+            }
+            
+          }
+        )
+        ScrollTrigger.refresh();
+
+        
+        gsap.set(
+        ["#my-palette","#about-me","#work","#process"],
+        { willChange: "transform" }
+    );
+    
   });
-
-
+  //const tl=gsap.timeline()
+  return ()=>{
+    ctx.revert();
+  };
+},[]);
 
       return(
         
         <>
-       
-        <div >
-   
-          <div className=" container-fluid overflow-hidden position-relative" id="home-container">
+  
+        <Navbar/>
+        <div id="smooth-wrapper" >
+          <div id="smooth-content">
+          <div className="container-fluid overflow-hidden position-relative" id="home-container">
             <div className="row row-cols-1" id="row" >
             {/*Introduction section*/}
-              <div className=" min-vh-100 col position-relative" id="palette-1" >
+              <div className="min-vh-100  col position-relative" id="palette-1" >
                 <h6 className="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
-                <div className="bg-white position-absolute top-0 start-0 end-0 bottom-0"id="my-palette">
+                <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0"id="my-palette">
                   
-                    <div className="homepage-video-container d-flex justify-content-center">
+                    <div className="homepage-video-container d-flex justify-content-center ">
                      
-                         <img src={selfie} className="d-lg-none" alt="home_image"/>
+                         <img src={selfie} className="d-lg-none rounded" loading="lazy" alt="home_image" id="home-image" />
                      
                        <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  autoPlay loop muted preload="none"></video> 
                                                                 
@@ -106,10 +125,10 @@ const Home=()=>{
               {/*About me section*/}
               <div className=" min-vh-100 col position-relative" id="palette-2" >
                 <h6 className="position-absolute bottom-0 end-0 pad-palette rotate">Lamp black</h6>
-                <div className="position-absolute top-0 start-0 end-0 bottom-0 "id="about-me">
+                <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 "id="about-me">
                   
                   <h3 className="tomorrow-thin p-5" >About</h3>
-                    <img src={about_me_image} className="d-flex" id="about-me-image"alt="about self portrait"/>
+                    <img src={about_me_image} className="d-flex rounded" id="about-me-image"alt="about self portrait"/>
                     <p className="tomorrow-thin p-5 d-none d-lg-flex d-sm-none ">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
                       His works explore the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
                       the concept of the family unit, its make-up ,origins and the role is plays in the greater society. His practice is heavily inluenced by classical realism,
@@ -131,10 +150,9 @@ const Home=()=>{
               
               {/*Works section*/}
                  <div className=" min-vh-100 col position-relative " id="palette-3" >
-                <h6 class="position-absolute bottom-0 start-0 rotate pad-palette text-white">Cadnium red light</h6>
+                <h6 className="position-absolute bottom-0 start-0 rotate pad-palette text-white">Cadnium red light</h6>
                 <div className="border-0 position-absolute top-0 start-0 end-0 bottom-0"id="work">
                   <h3 className="tomorrow-thin p-5 text-white">Work</h3>
-                  
                   <div className=" min-vh-100 d-flex justify-content-center position-absolute top-0 bottom-0 end-0 start-0"  id="see-more-container" >
                     <a href="/work" className="text-white link-underline link-underline-opacity-0 " id="see-more-container-link">
                       <i className=" bx bx-arrow-to-right bx-lg d-flex justify-content-center rounded bx-flashing" id="see-more-icon"></i> 
@@ -146,10 +164,10 @@ const Home=()=>{
 
               {/*My process section*/}
                  <div className=" min-vh-100 col position-relative" id="palette-4"  >
-                <h6 class="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
-                <div className="position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
+                <h6 className="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
+                <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
-                  <video className="p-md-5 "src={process_video} type="video/mp4" autoPlay muted loop id="process-video"></video>
+                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" autoPlay muted loop preload="metadata" id="process-video"></video>
                   <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
                       Read about my process</a> 
                 </div>
@@ -178,7 +196,7 @@ const Home=()=>{
                  <div className="position-absolute bottom-0 end-0 opacity-100" id="sun">
                    <FooterImage source={sun} />
                 </div>
-                     <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant">
+                     <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant1">
                    <FooterImage source={sun} />
                 </div>
 
@@ -210,6 +228,7 @@ const Home=()=>{
 
               </div>
             </div>
+          </div>
           </div>
         </div>
     
