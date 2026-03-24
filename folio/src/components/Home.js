@@ -3,9 +3,10 @@ import {useGSAP} from '@gsap/react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import homepage_clip from '../media/homepage_clip1.mp4';
-import selfie from '../media/selfie 11-4-2-2-2.jpg';
+import selfie from '../media/selfie 11-4-2-3.jpg';
 import about_me_image from '../media/about_me2.jpg';
 import process_video from '../media/website_clip.mp4';
+import preview_image from '../media/process_preview-2.jpg'
 import FooterImage  from './Footer_image';
 import elephant from '../media/website_footer.png';
 import cow1 from '../media/website_footer1.png';
@@ -167,7 +168,7 @@ const Home=()=>{
                 <h6 className="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
                 <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
-                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" muted  loop controls preload="none" id="process-video"></video>
+                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" muted  loop controls preload="none" poster={preview_image} id="process-video"></video>
                   <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
                       Read about my process</a> 
                 </div>
