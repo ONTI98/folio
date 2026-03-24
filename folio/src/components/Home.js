@@ -110,13 +110,13 @@ const Home=()=>{
             {/*Introduction section*/}
               <div className="min-vh-100  col position-relative" id="palette-1" >
                 <h6 className="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
-                <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0"id="my-palette">
+                <div className="min-vh-100 position-absolute bg-white top-0 start-0 end-0 bottom-0"id="my-palette">
                   
                     <div className="homepage-video-container d-flex justify-content-center ">
                      
                          <img src={selfie} className="d-lg-none rounded" alt="home_image" id="home-image"/>
                      
-                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  loop muted preload="none"></video> 
+                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  autoPlay loop muted preload="none"></video> 
                                                                 
                     </div>
                 </div>
@@ -167,7 +167,7 @@ const Home=()=>{
                 <h6 className="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
                 <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
-                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" autoPlay muted loop preload="metadata" id="process-video"></video>
+                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" muted  loop controls preload="none" id="process-video"></video>
                   <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
                       Read about my process</a> 
                 </div>
