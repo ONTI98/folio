@@ -114,9 +114,9 @@ const Home=()=>{
                   
                     <div className="homepage-video-container d-flex justify-content-center ">
                      
-                         <img src={selfie} className="d-lg-none rounded" loading="lazy" alt="home_image" id="home-image" />
+                         <img src={selfie} className="d-lg-none rounded" alt="home_image" id="home-image"/>
                      
-                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  autoPlay loop muted preload="none"></video> 
+                       <video  id="homepage-clip" className="d-none d-lg-flex" src={homepage_clip} type="video/mp4"  loop muted preload="none"></video> 
                                                                 
                     </div>
                 </div>
