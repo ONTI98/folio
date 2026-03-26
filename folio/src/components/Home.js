@@ -3,18 +3,18 @@ import {useGSAP} from '@gsap/react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import homepage_clip from '../media/homepage_clip1.mp4';
-import selfie from '../media/selfie 11-4-2-3.jpg';
-import about_me_image from '../media/about_me2.jpg';
+import selfie from '../media/selfie 11-4-2-3.webp';
+import about_me_image from '../media/about_me2.webp';
 import process_video from '../media/website_clip.mp4';
-import preview_image from '../media/process_preview-2.jpg'
+import preview_image from '../media/process_preview-2.webp';
 import FooterImage  from './Footer_image';
-import elephant from '../media/website_footer.png';
-import cow1 from '../media/website_footer1.png';
-import family from '../media/website_footer2.png';
-import giraffe from '../media/website_footer3.png';
-import cow from '../media/website_footer4.png';
-import person from '../media/website_footer5.png';
-import sun from '../media/website_footer6.png';
+import elephant from '../media/website_footer.webp';
+import cow1 from '../media/website_footer1.webp';
+import family from '../media/website_footer2.webp';
+import giraffe from '../media/website_footer3.webp';
+import cow from '../media/website_footer4.webp';
+import person from '../media/website_footer5.webp';
+import sun from '../media/website_footer6.webp';
 import Navbar from './Navbar.js';
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
@@ -175,7 +175,7 @@ const Home=()=>{
               </div>
 
                {/*Footer section*/}
-              <div className="col  d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
+              <div className="col d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
                 <div className="position-absolute top-0 start-0 opacity-75" id="elephant">
                    <FooterImage source={elephant} />
                 </div>
@@ -207,7 +207,7 @@ const Home=()=>{
                 
               
                <div className="col rounded d-block d-lg-block d-md-block  p-4">
-                <h5 className="tomorrow-thinner">Contact Ontisitse Manyeneng</h5>
+                <h5 className="tomorrow-thinner">Follow Ontisitse Manyeneng</h5>
                 <div className="col d-md-block d-sm-flex d-lg-block justify-content-center py-4 " id="instagram-link">
                     <a className="link-underline link-underline-opacity-0" href="https://instagram.com/ontisitsemanyeneng">
                   <i className="fa-brands fa-xl fa-instagram "><span className="tomorrow-thin ps-1">ontisitsemanyeneng</span></i>
