@@ -1,9 +1,9 @@
-import logo from '../media/Website_logo.png'
-import about from '../media/website_about.png'
-import work from '../media/website_work.png'
-import process from '../media/website_process.png'
-import contact from '../media/website_contact.png'
-import exhibitions from '../media/website_exhibitions.png';
+import logo from '../media/Website_logo.webp'
+import about from '../media/website_about.webp'
+import work from '../media/website_work.webp'
+import process from '../media/website_process.webp'
+import contact from '../media/website_contact.webp'
+import exhibitions from '../media/website_exhibitions.webp';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import logo_image from '../media/website_offcanvas_logo3.jpg';
@@ -16,7 +16,8 @@ const Navbar= ()=>{
 
 //create function that will enable scrolling again
   const enable_scroll=()=>{
-    document.body.style.overflow="";}
+    document.body.style.overflow="";
+   };
 
 
     return(
