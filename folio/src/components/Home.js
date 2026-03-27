@@ -7,16 +7,24 @@ import selfie from '../media/selfie 11-4-2-3.webp';
 import about_me_imaged from '../media/about_me2d.webp';
 import about_me_imagerd from '../media/about_me2rd.webp';
 import process_video from '../media/website_clip.mp4';
-import preview_image from '../media/process_preview-2.webp';
+import preview_imagerd from '../media/process_preview-2rd.webp';
 import FooterImage  from './Footer_image';
-import elephant from '../media/website_footer.webp';
-import cow1 from '../media/website_footer1.webp';
-import family from '../media/website_footer2.webp';
-import giraffe from '../media/website_footer3.webp';
-import cow from '../media/website_footer4.webp';
-import person from '../media/website_footer5.webp';
-import sun from '../media/website_footer6.webp';
+import elephantd from '../media/website_footerd.webp';
+import cow1d from '../media/website_footer1d.webp';
+import familyd from '../media/website_footer2d.webp';
+import giraffed from '../media/website_footer3d.webp';
+import cowd from '../media/website_footer4d.webp';
+import persond from '../media/website_footer5d.webp';
+import sund from '../media/website_footer6d.webp';
+import elephantrd from '../media/website_footerrd.webp';
+import cow1rd from '../media/website_footer1rd.webp';
+import familyrd from '../media/website_footer2rd.webp';
+import girafferd from '../media/website_footer3rd.webp';
+import cowrd from '../media/website_footer4rd.webp';
+import personrd from '../media/website_footer5rd.webp';
+import sunrd from '../media/website_footer6rd.webp';
 import Navbar from './Navbar.js';
+
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 
@@ -176,7 +184,14 @@ const Home=()=>{
                 <h6 className="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
                 <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
-                  <video className="p-md-5 rounded "src={process_video} type="video/mp4" muted  loop controls preload="none" poster={preview_image} id="process-video"></video>
+                  <video 
+                  className="p-md-5 rounded"
+                  src={process_video} 
+                  type="video/mp4" 
+                  muted loop controls preload="none" 
+                  poster={preview_imagerd}
+                  id="process-video"> 
+                  </video>
                   <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
                       Read about my process</a> 
                 </div>
@@ -185,28 +200,28 @@ const Home=()=>{
                {/*Footer section*/}
               <div className="col d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
                 <div className="position-absolute top-0 start-0 opacity-75" id="elephant">
-                   <FooterImage source={elephant} />
+                   <FooterImage sourceSet={`${elephantd} 1x, ${elephantrd} 2x`} source={elephantd} />
                 </div>
                 <div className="position-absolute top-0 start-50  opacity-50" id="cow1">
-                   <FooterImage source={cow1} />
+                   <FooterImage sourceSet={`${cow1d} 1x , ${cow1rd} 2x`} source={cow1d} />
                 </div>
                 <div className="position-absolute top-0 end-0  opacity-100" id="family">
-                   <FooterImage source={family} />
+                   <FooterImage sourceSet={`${familyd} 1x , ${familyrd} 2x`} source={familyd} />
                 </div>
                 <div className="position-absolute top-50 start-0  opacity-100" id="giraffe">
-                   <FooterImage source={giraffe} />
+                   <FooterImage sourceSet={`${giraffed} 1x , ${girafferd} 2x`} source={giraffed} />
                 </div>
                 <div className="position-absolute bottom-0 start-0  opacity-100"   id="cow">
-                   <FooterImage source={cow} />
+                   <FooterImage sourceSet={`${cowd} 1x , ${cowrd} 2x`} source={cowd} />
                 </div>
                 <div className="position-absolute bottom-0 start-50  opacity-100 "  id="person">
-                   <FooterImage source={person} />
+                   <FooterImage sourceSet={`${persond} 1x , ${personrd} 2x`} source={persond} />
                 </div>
                  <div className="position-absolute bottom-0 end-0 opacity-100" id="sun">
-                   <FooterImage source={sun} />
+                   <FooterImage sourceSet={`${sund} 1x , ${sunrd} 2x`} source={sund} />
                 </div>
                      <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant1">
-                   <FooterImage source={sun} />
+                   <FooterImage sourceSet={`${sund} 1x, ${sunrd} 2x`} source={sund} />
                 </div>
 
                 {/*Footer icon and heading*/}
