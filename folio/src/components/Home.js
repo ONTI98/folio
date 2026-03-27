@@ -4,7 +4,8 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import homepage_clip from '../media/homepage_clip1.mp4';
 import selfie from '../media/selfie 11-4-2-3.webp';
-import about_me_image from '../media/about_me2.webp';
+import about_me_imaged from '../media/about_me2d.webp';
+import about_me_imagerd from '../media/about_me2rd.webp';
 import process_video from '../media/website_clip.mp4';
 import preview_image from '../media/process_preview-2.webp';
 import FooterImage  from './Footer_image';
@@ -111,7 +112,7 @@ const Home=()=>{
             {/*Introduction section*/}
               <div className="min-vh-100  col position-relative" id="palette-1" >
                 <h6 className="position-absolute bottom-0 start-0 pad-palette rotate" id="palette-1-heading" >Lemon yellow</h6>
-                <div className="min-vh-100 position-absolute bg-white top-0 start-0 end-0 bottom-0"id="my-palette">
+                <div className="min-vh-100 position-absolute bg-white top-0 start-0 end-0 bottom-0" id="my-palette">
                   
                     <div className="homepage-video-container d-flex justify-content-center ">
                      
@@ -129,11 +130,18 @@ const Home=()=>{
                 <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 "id="about-me">
                   
                   <h3 className="tomorrow-thin p-5" >About</h3>
-                    <img src={about_me_image} className="d-flex rounded" id="about-me-image"alt="about self portrait"/>
+
+                    <img src={about_me_imaged} 
+                    srcSet={`${about_me_imaged} 1x , ${about_me_imagerd} 2x`} 
+                    loading="lazy" 
+                    className="d-flex rounded" 
+                    id="about-me-image" 
+                    alt="about self portrait"/>
+
                     <p className="tomorrow-thin p-5 d-none d-lg-flex d-sm-none ">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
                       His works explore the human psyche and how perceptions are shaped as a results of it. At the core of his practice, he finds inspiration from 
                       the concept of the family unit, its make-up ,origins and the role is plays in the greater society. His practice is heavily inluenced by classical realism,
-                      impressionism,Neo-classicism and modern-day  minimalism, where he fuses both convetional and uncoventional theory to portray fundamental human commonalities.
+                      impressionism,Neo-classicism and modern-day  minimalism, where he fuses both convetional and non-traditional theory to portray fundamental human commonalities.
                        </p>
                        <a className="link-underline link-underline-opacity-0 tomorrow-thinner text-primary d-none d-lg-flex justify-content-center" href="/about" >Read more</a>
                       <p className="tomorrow-thin  py-5 px-3 d-sm-flex d-lg-none">Ontisitse Manyeneng, born in 1998, is a South African visual artist and oil painter.
