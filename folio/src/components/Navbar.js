@@ -1,4 +1,5 @@
-import logo from '../media/Website_logo.webp'
+import logod from '../media/Website_logod.webp';
+import logord from '../media/Website_logord.webp';
 import about from '../media/website_about.webp'
 import work from '../media/website_work.webp'
 import process from '../media/website_process.webp'
@@ -29,7 +30,9 @@ const Navbar= ()=>{
     
      
           < Link  onClick={enable_scroll} to="/" >
-            <img src={logo} className=" " id="logo" alt="main_logo.svg"/>
+            <img src={logod}
+            srcSet={`${logod} 1x, ${logord} 2x`}
+            id="logo" alt="main_logo.svg"/>
           </Link>
            
   
