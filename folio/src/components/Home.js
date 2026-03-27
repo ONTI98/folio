@@ -24,6 +24,7 @@ import cowrd from '../media/website_footer4rd.webp';
 import personrd from '../media/website_footer5rd.webp';
 import sunrd from '../media/website_footer6rd.webp';
 import Navbar from './Navbar.js';
+import ScrollUpButton from './ScrollUpButton.js';
 
 
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
@@ -109,9 +110,6 @@ const Home=()=>{
   };
 },[]);
 
-const scrollup=()=>{
-  window.scrollTo({top:0,behavior:"smooth"})
-}
 
       return(
         
@@ -203,11 +201,8 @@ const scrollup=()=>{
                       Read about my process</a>
                        
                 </div>
-                <div className="position-absolute end-0 bottom-0 m-5 border bg-white d-flex justify-content-center " id="home-back-to-top">
-                  <button className="btn" onClick={scrollup}>
-                    Top 
-                  </button>
-                </div>
+               
+               
               </div>
                         
                {/*Footer section*/}
@@ -236,7 +231,7 @@ const scrollup=()=>{
                      <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant1">
                    <FooterImage sourceSet={`${sund} 1x, ${sunrd} 2x`} source={sund} />
                 </div>
-                 
+                  <ScrollUpButton id="scrollup-home"/>
 
                 {/*Footer icon and heading*/}
 
