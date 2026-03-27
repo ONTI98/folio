@@ -1,10 +1,15 @@
 import logod from '../media/Website_logod.webp';
 import logord from '../media/Website_logord.webp';
-import about from '../media/website_about.webp'
-import work from '../media/website_work.webp'
-import process from '../media/website_process.webp'
-import contact from '../media/website_contact.webp'
-import exhibitions from '../media/website_exhibitions.webp';
+import aboutd from '../media/website_aboutd.webp'
+import aboutrd from '../media/website_aboutrd.webp'
+import workd from '../media/website_workd.webp'
+import workrd from '../media/website_workrd.webp'
+import processd from '../media/website_processd.webp'
+import processrd from '../media/website_processrd.webp'
+import exhibitionsd from '../media/website_exhibitionsd.webp'
+import exhibitionsrd from '../media/website_exhibitionsrd.webp'
+import contactd from '../media/website_contactd.webp';
+import contactrd from '../media/website_contactd.webp';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import logo_image from '../media/website_offcanvas_logo3.jpg';
@@ -60,19 +65,39 @@ const Navbar= ()=>{
         </div >
           <hr/>
          <Link className="link-underline link-underline-opacity-0 mx-auto " onClick={enable_scroll} to="/about" >
-          <img id="offset-about" src={about} alt="about.svg"/>
+          <img 
+          id="offset-about" 
+          src={aboutd}
+          srcSet={` ${aboutd} 1x, ${aboutrd} 2x `} 
+          alt="about.svg"/>
          </Link><hr />
           <Link className="link-underline p-md-5 link-underline-opacity-0 mx-auto"  onClick={enable_scroll} to="/work" >
-            <img id="offset-work"  src={work} alt="work.svg"/>
+            <img
+            id="offset-work"  
+            src={workd} 
+            srcSet={` ${workd} 1x, ${workrd} 2x `}
+            alt="work.svg"/>
           </Link><hr/>
           <Link className="link-underline link-underline-opacity-0 mx-auto " onClick={enable_scroll} to="/process" >
-            <img id="offset-process" src={process} alt=" process.svg"/>
+            <img 
+            id="offset-process" 
+            src={processd}
+            srcSet={` ${processd} 1x, ${processrd} 2x `} 
+            alt=" process.svg"/>
           </Link><hr/>
            <Link className="link-underline link-underline-opacity-0 mx-auto " onClick={enable_scroll} to="/exhibitions" >
-            <img id="offset-exhibitions" src={exhibitions} alt="exhibitions.svg"/>
+            <img 
+            id="offset-exhibitions" 
+            src={exhibitionsd}
+            srcSet={` ${exhibitionsd} 1x, ${exhibitionsrd} 2x `}  
+            alt="exhibitions.svg"/>
           </Link><hr/>
           <Link className="link-underline link-underline-opacity-0 mx-auto" onClick={enable_scroll} to="/contact" >
-            <img id="offset-contact" src={contact} alt="contact.svg"/>
+            <img 
+            id="offset-contact" 
+            src={contactd}
+            srcSet={` ${contactd} 1x, ${contactrd} 2x `}  
+            alt="contact.svg"/>
           </Link>
       
       </div>
