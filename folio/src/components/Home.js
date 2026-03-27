@@ -25,6 +25,7 @@ import personrd from '../media/website_footer5rd.webp';
 import sunrd from '../media/website_footer6rd.webp';
 import Navbar from './Navbar.js';
 
+
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 
@@ -45,37 +46,37 @@ const Home=()=>{
    const ctx=gsap.context(()=>{
       
       gsap.fromTo("#my-palette",{x:0},
-         {xPercent:140,
+         {xPercent:65,
           scrollTrigger:{
             trigger:"#my-palette",
             start:"5% top",
-            end:"bottom top",
+            end:"bottom 80%",
             scrub:1,}})
         
         gsap.fromTo("#about-me",{x:0},
-        {xPercent:-100,
+        {xPercent:-25,
             scrollTrigger:{
             trigger:"#about-me",
             start:"5% top",
-            end:"bottom top",
+            end:"bottom 80%",
             scrub:1,}})
         
         gsap.fromTo("#work",{x:0},
-           {xPercent:110,
+           {xPercent:25,
             scrollTrigger:{
             trigger:"#work",
             start:"5% top",
-            end:"bottom top",
+            end:"bottom 80%",
             scrub:1,}}
         )
         
 
         gsap.fromTo("#process",{x:0},
-            {xPercent:-120,
+            {xPercent:-30,
             scrollTrigger:{
             trigger:"#process",
             start:"5% top",
-            end:"bottom top",
+            end:"bottom 80%",
             scrub:1,
             
           }}
@@ -107,6 +108,10 @@ const Home=()=>{
     ctx.revert();
   };
 },[]);
+
+const scrollup=()=>{
+  window.scrollTo({top:0,behavior:"smooth"})
+}
 
       return(
         
@@ -181,7 +186,9 @@ const Home=()=>{
 
               {/*My process section*/}
                  <div className=" min-vh-100 col position-relative" id="palette-4"  >
+
                 <h6 className="position-absolute bottom-0 end-0 rotate pad-palette">Prussian blue</h6>
+               
                 <div className="min-vh-100 position-absolute top-0 start-0 end-0 bottom-0 overflow-hidden"id="process">
                   <h3 className="tomorrow-thin p-5 ">My process</h3>
                   <video 
@@ -193,10 +200,16 @@ const Home=()=>{
                   id="process-video"> 
                   </video>
                   <a className="link-underline link-underline-opacity-0 tomorrow-thin text-white d-flex justify-content-center " href="/process" >
-                      Read about my process</a> 
+                      Read about my process</a>
+                       
+                </div>
+                <div className="position-absolute end-0 bottom-0 m-5 border bg-white d-flex justify-content-center " id="home-back-to-top">
+                  <button className="btn" onClick={scrollup}>
+                    Top 
+                  </button>
                 </div>
               </div>
-
+                        
                {/*Footer section*/}
               <div className="col d-lg-flex d-sm-block d-md-block p-5  position-relative" id="footer">
                 <div className="position-absolute top-0 start-0 opacity-75" id="elephant">
@@ -223,6 +236,7 @@ const Home=()=>{
                      <div className="position-absolute bottom-0 top-50 end-0 opacity-100" id="elephant1">
                    <FooterImage sourceSet={`${sund} 1x, ${sunrd} 2x`} source={sund} />
                 </div>
+                 
 
                 {/*Footer icon and heading*/}
 
