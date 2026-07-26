@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useGSAP} from '@gsap/react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import Hero from './Hero.js';
@@ -10,16 +10,30 @@ import work_self from '../media/work_selfie.jpg';
 import molao from '../media/work_molao.jpg';
 import dipaki from '../media/work_dipaki.jpg';
 import Navbar from './Navbar.js';
-
-gsap.registerPlugin(ScrollTrigger);
+import {ScrollSmoother} from 'gsap/ScrollSmoother';
+import ScrollUpButton from './ScrollUpButton.js'
+gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
 
 
 
 const Work=()=>{
 
+
+
 const tl=gsap.timeline();
 
-    useEffect(()=>{
+
+    useGSAP(()=>{
+
+        const ctx=gsap.context(()=>{
+
+            
+        ScrollSmoother.create(
+            {
+                smooth:1
+            }
+        )
+
         tl.fromTo("#spane-1",
             {x:"-100vw"},
             {
@@ -28,36 +42,47 @@ const tl=gsap.timeline();
                     trigger:"#spane-1",
                     start:"bottom 99.8%",
                     end:"top bottom",
-                    scrub:1,
+                    scrub:1.5,
 
-                }
-
-            
-                
+                }   
             })
+            ScrollTrigger.create(
+            {
+                trigger:"#work-container",
+                start:"top top",
+                toggleClass:{
+                targets:"#nav",
+                className:"nav-hidden"
+                }
+                
+            }
+            )
 
-        gsap.set(
-        ["#spane-1"],
-        { willChange: "transform" })
-            
-    });
+            gsap.set(
+            ["#spane-1"],
+            { willChange: "transform" });
+        });
+            return ()=>ctx.revert()
+    },[]);
     
     return(
                     <>
                     <Navbar/>
-                        <div className="container-fluid" id="work-container">
+                    <div id="smooth-wrapper">
+                        <div id="smooth-content">
+                            <div className="container-fluid" id="work-container">
                                 <div className="row row-cols-1 row-cols-lg-1">
                                     
-                            <div className=" rounded col min-vh-100  position-relative d-flex justify-content-center" id="work-intro">
+                            <div className="col min-vh-100  position-relative d-flex justify-content-center" id="work-intro">
                                     <Hero section="works." heading="Works"/>
-                                <div className="shadow rounded bg-white min-vh-100 position-absolute top-0 bottom-0 start-0 end-0" id="spane-1">
+                                <div className="shadow  bg-white min-vh-100 position-absolute top-0 bottom-0 start-0 end-0" id="spane-1">
                                 </div>
                             </div>
 
                             {/*work 1*/}
                             <div className="col d-lg-block d-md-block " id="spane-2">
                                 <div className="col d-flex justify-content-center">
-                                    <img src={poly} className="work-image"></img>
+                                    <img src={poly} className="work-image" alt="polyptych.svg"></img>
                                 </div>
                                 <div className="col  d-flex justify-content-center position-relative">
                                     <span className="tomorrow-thinner">For maternal veneration,
@@ -70,7 +95,7 @@ const tl=gsap.timeline();
                             {/*work 2*/}
                             <div className="col d-lg-block d-md-block " id="spane-3">
                                 <div className="col d-flex justify-content-center">
-                                    <img src={nagana} className="work-image"></img>
+                                    <img src={nagana} className="work-image" alt="nagana.svg"></img>
                                 </div>
                                <div className="col  d-flex justify-content-center">
                                     <span className="tomorrow-thinner">Nagana ka these recent developments,
@@ -84,7 +109,7 @@ const tl=gsap.timeline();
                              <div className="col d-lg-block d-md-block " id="spane-3">
                                 <div className="col d-flex position-relative justify-content-center">
                                     <div className="bg-danger position-absolute top-0 end-0" id="sold-icon"></div>
-                                    <img src={father_to_sons} className="work-image"></img>
+                                    <img src={father_to_sons} className="work-image" alt="father_to_sons.svg"></img>
                                 </div>
                                 <div className="col d-flex justify-content-center">
                                     <span className="tomorrow-thinner">Father to sons,
@@ -93,25 +118,12 @@ const tl=gsap.timeline();
                                     </span>
                                 </div>
                             </div>
-                            
-                            {/*work 4*/}
-                             <div className="col d-lg-block d-md-block  " id="spane-3">
-                                <div className="col d-flex justify-content-center">
-                                    <img src={trip} className="work-image"></img>
-                                </div>
-                                <div className="col d-flex justify-content-center">
-                                    <span className="tomorrow-thinner">Ke bana, just let them be. ,
-                                        <br/>1300 x 3100 mm,
-                                        <br/>Oil on canvas,<br/>2026 
-                                    </span>
-                                </div>
-                            </div>
 
                              {/*work 5*/}           
                              <div className="col d-lg-block d-md-block " id="spane-3">
                                 <div className="col  d-flex position-relative justify-content-center">
                                     <div className="bg-danger position-absolute top-0 end-0" id="sold-icon"></div>
-                                    <img src={work_self} className="work-image"></img>
+                                    <img src={work_self} className="work-image" alt="self_portrait.svg"></img>
                                 </div>
                                 <div className="col d-flex justify-content-center">
                                     <span className="tomorrow-thinner">Self-portrait with Black,
@@ -125,7 +137,7 @@ const tl=gsap.timeline();
                              <div className="col d-lg-block d-md-block " id="spane-3">
                                 <div className="col d-flex position-relative justify-content-center">
                                     <div className="bg-danger position-absolute top-0 end-0" id="sold-icon"></div>
-                                    <img src={molao} className="work-image"></img>
+                                    <img src={molao} className="work-image" alt="molao.svg"></img>
                                 </div>
                                 <div className="col d-flex justify-content-center">
                                     <span className="tomorrow-thinner">Molao ona has been set in stone,
@@ -139,7 +151,8 @@ const tl=gsap.timeline();
                             <div className="col d-lg-block d-md-block " id="spane-3">
                                 <div className="col d-flex position-relative justify-content-center">
                                     <div className="bg-danger position-absolute top-0 end-0" id="sold-icon"></div>
-                                    <img src={dipaki} className="work-image"></img>
+                                    
+                                    <img src={dipaki} className="work-image" alt="dipaki.svg"></img>
                                 </div>
                                 <div className="col d-flex justify-content-center">
                                     <span className="tomorrow-thinner">Dipaki tsa self-veneration ,
@@ -147,10 +160,15 @@ const tl=gsap.timeline();
                                         <br/>Oil on canvas,<br/>2025
                                     </span>
                                 </div>
+                                
+                                    <ScrollUpButton id="scrollup-work"/>
+                            
                             </div>
 
                             </div>
+                            </div>
                         </div>
+                    </div>
                         
                     </>
     );
